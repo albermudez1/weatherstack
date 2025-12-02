@@ -1,141 +1,210 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
+/* Root layout: center the main container on the screen */
 .main {
-  display: flex;
   min-height: 100vh;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* Main card container for the weather page */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  width: 100%;
+  background: #020617;
+  border-radius: 0.75rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Header section: title and subtitle */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.header p {
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+/* Search section: wraps the search form */
+.searchSection {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Search form: input + button aligned with flexbox */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+/* Label above the input */
+.label {
+  width: 100%;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+}
+
+/* City input field */
+.input {
+  flex: 1 1 auto;
+  min-width: 220px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #f9fafb;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* Search button */
+.button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
   cursor: pointer;
-  width: fit-content;
   font-weight: 500;
+  background: #3b82f6;
+  color: #f9fafb;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.button:hover {
+  opacity: 0.9;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+/* Result section: container for the weather card */
+.resultSection {
+  display: flex;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+/* Placeholder card where weather data will be rendered later */
+.placeholderCard {
+  flex: 1;
+  border-radius: 0.75rem;
+  border: 1px dashed #4b5563;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 0.95rem;
+  text-align: center;
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+/* Error text inside the result card */
+.errorText {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #fca5a5;
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+/* Weather card with actual data */
+.weatherCard {
+  flex: 1;
+  border-radius: 0.75rem;
+  border: 1px solid #4b5563;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: #020617;
 }
+
+.weatherCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.weatherLocation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.weatherLocation h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.weatherLocation span {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.weatherTime {
+  font-size: 0.85rem;
+}
+
+.weatherTemperatureGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.weatherTemperature {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.weatherFeelsLike {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.weatherDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.weatherDetailsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.weatherDetailsItem span {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+}
+
+.weatherDetailsItem strong {
+  color: #e5e7eb;
+}
+
+.weatherIcon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
