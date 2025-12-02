@@ -115,3 +115,96 @@
   text-align: center;
 }
 
+/* Error text inside the result card */
+.errorText {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #fca5a5;
+}
+
+/* Weather card with actual data */
+.weatherCard {
+  flex: 1;
+  border-radius: 0.75rem;
+  border: 1px solid #4b5563;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: #020617;
+}
+
+.weatherCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.weatherLocation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.weatherLocation h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.weatherLocation span {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.weatherTime {
+  font-size: 0.85rem;
+}
+
+.weatherTemperatureGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.weatherTemperature {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.weatherFeelsLike {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.weatherDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.weatherDetailsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.weatherDetailsItem span {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+}
+
+.weatherDetailsItem strong {
+  color: #e5e7eb;
+}
+
+.weatherIcon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+

@@ -44,7 +44,7 @@ type WeatherstackResponse = {
 /**
  * Shape of the cleaned weather data returned to the client.
  */
-type WeatherData = {
+export type WeatherData = {
   city: string;
   country: string;
   region: string;
